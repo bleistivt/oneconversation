@@ -45,6 +45,7 @@ class OneConversationPlugin extends Gdn_Plugin {
     }
 
 
+    // Find the most recent conversation between two users.
     private static function conversation($from, $to) {
         // Find all conversations that the sender has participated in.
         $fromIDs = Gdn::sql()
