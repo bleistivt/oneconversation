@@ -19,7 +19,7 @@ class OneConversationPlugin extends Gdn_Plugin {
         if (!c('oneconversation.messageButton', true)) {
             return;
         }
-        // Check if the conversation editor has been opened with a single recipient.
+        // Check if the message editor has been opened with a single recipient.
         if (inSection('PostConversation') && count($sender->RequestArgs) == 1) {
             $to = Gdn::userModel()->getByUsername($sender->RequestArgs[0]);
             // Is there already a conversation with this recipient?
