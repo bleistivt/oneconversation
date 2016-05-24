@@ -1,4 +1,4 @@
-# oneconversation
+# One Conversation
 
 https://vanillaforums.org/addon/oneconversation-plugin
 
