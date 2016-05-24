@@ -29,6 +29,7 @@ class OneConversationPlugin extends Gdn_Plugin {
         }
     }
 
+
     public function messagesController_beforeAddConversation_handler($sender, $args) {
         if (!c('oneconversation.autoAppend', true) || count($args['Recipients']) != 1) {
             return;
