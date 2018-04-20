@@ -1,18 +1,5 @@
 <?php
 
-$PluginInfo['oneconversation'] = [
-    'Name' => 'One Conversation',
-    'Description' => 'Limit conversations to one per user.',
-    'Version' => '0.1',
-    'MobileFriendly' => true,
-    'SettingsUrl' => 'settings/oneconversation',
-    'SettingsPermission' => 'Garden.Settings.Manage',
-    'Author' => 'Bleistivt',
-    'AuthorUrl' => 'http://bleistivt.net',
-    'License' => 'GNU GPL2',
-    'GitHub' => 'bleistivt/oneconversation'
-];
-
 class OneConversationPlugin extends Gdn_Plugin {
 
     public function messagesController_render_before($sender) {
@@ -24,7 +11,7 @@ class OneConversationPlugin extends Gdn_Plugin {
             $to = Gdn::userModel()->getByUsername($sender->RequestArgs[0]);
             // Is there already a conversation with this recipient?
             if ($to && ($id = self::conversation(Gdn::session()->UserID, $to->UserID))) {
-                redirect('messages/'.$id.'#MessageForm');
+                redirectTo('messages/'.$id.'#MessageForm');
             }
         }
     }
@@ -41,7 +28,7 @@ class OneConversationPlugin extends Gdn_Plugin {
                 'Body' => $sender->Form->getFormValue('Body'),
                 'Format' => $sender->Form->getFormValue('Format')
             ]);
-            redirect('messages/'.$id.'#MessageForm');
+            redirectTo('messages/'.$id.'#MessageForm');
         }
     }
 
