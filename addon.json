@@ -1,0 +1,18 @@
+{
+    "name": "One Conversation",
+    "description": "Limit conversations to one per user.",
+    "version": "0.2",
+    "settingsPermission": "Garden.Settings.Manage",
+    "settingsUrl": "settings/oneconversation",
+    "mobileFriendly": true,
+    "license": "GNU GPL2",
+    "gitHub": "bleistivt/oneconversation",
+    "key": "oneconversation",
+    "type": "addon",
+    "authors": [
+        {
+            "name": "Bleistivt",
+            "homepage": "http://bleistivt.net"
+        }
+    ]
+}
