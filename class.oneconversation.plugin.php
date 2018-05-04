@@ -64,7 +64,6 @@ class OneConversationPlugin extends Gdn_Plugin {
 
     public function settingsController_oneConversation_create($sender) {
         $sender->permission('Garden.Settings.Manage');
-        $sender->addSideMenu();
 
         $conf = new ConfigurationModule($sender);
         $conf->initialize([
