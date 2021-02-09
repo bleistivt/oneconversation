@@ -3,7 +3,7 @@
 class OneConversationPlugin extends Gdn_Plugin {
 
     public function messagesController_render_before($sender) {
-        if (!c('oneconversation.messageButton', true)) {
+        if (!Gdn::config('oneconversation.messageButton', true)) {
             return;
         }
         // Check if the message editor has been opened with a single recipient.
@@ -18,7 +18,7 @@ class OneConversationPlugin extends Gdn_Plugin {
 
 
     public function messagesController_beforeAddConversation_handler($sender, $args) {
-        if (!c('oneconversation.autoAppend', true) || count($args['Recipients']) != 1) {
+        if (!Gdn::config('oneconversation.autoAppend', true) || count($args['Recipients']) != 1) {
             return;
         }
         if ($id = self::conversation(Gdn::session()->UserID, $args['Recipients'][0])) {
@@ -79,7 +79,7 @@ class OneConversationPlugin extends Gdn_Plugin {
             ]
         ]);
 
-        $sender->title(sprintf(t('%s Settings'), 'One Conversation'));
+        $sender->title(sprintf(Gdn::translate('%s Settings'), 'One Conversation'));
         $conf->renderAll();
     }
 
